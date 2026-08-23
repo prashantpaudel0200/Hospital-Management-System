@@ -1,0 +1,2 @@
+101|Prashant|19|Male|9748433997|Fever
+102|Pramanna|18|Female|982131313|Dengue
