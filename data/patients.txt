@@ -1,2 +1,4 @@
 101|Prashant|19|Male|9748433997|Fever
 102|Pramanna|18|Female|982131313|Dengue
+101|Ridima|20|Female|9341324231|Fever
+102|XYZ|20|Male|319024802134|sugvfs
