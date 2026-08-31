@@ -6,7 +6,6 @@
 
 using namespace std;
 
-
 // Default constructor
 Billing::Billing()
 {
@@ -27,7 +26,6 @@ Billing::Billing()
     vatCharge = 0;
     overallCharge = 0;
 }
-
 
 // Parameterized constructor
 Billing::Billing(int bID, int pID, string pName,
@@ -51,7 +49,6 @@ Billing::Billing(int bID, int pID, string pName,
     calculateBill();
 }
 
-
 // Enter bill details
 void Billing::setBillDetails()
 {
@@ -60,7 +57,6 @@ void Billing::setBillDetails()
 
     cout << "Enter Patient ID: ";
     cin >> patientID;
-
     cin.ignore();
 
     cout << "Enter Patient Name: ";
@@ -68,7 +64,6 @@ void Billing::setBillDetails()
 
     cout << "Enter Doctor ID: ";
     cin >> doctorID;
-
     cin.ignore();
 
     cout << "Enter Doctor Name: ";
@@ -86,10 +81,8 @@ void Billing::setBillDetails()
     cout << "Enter Other Charges: Rs. ";
     cin >> otherCharges;
 
-    // Calculate  VAT and overall charge
     calculateBill();
 }
-
 
 // Calculate bill
 void Billing::calculateBill()
@@ -103,7 +96,6 @@ void Billing::calculateBill()
 
     overallCharge = subtotal + vatCharge;
 }
-
 
 // Display bill details
 void Billing::displayBill()
@@ -139,13 +131,11 @@ void Billing::displayBill()
     cout << "============================================================\n";
 }
 
-
 // Get Bill ID
 int Billing::getBillID()
 {
     return billID;
 }
-
 
 // Get Patient ID
 int Billing::getPatientID()
@@ -153,13 +143,11 @@ int Billing::getPatientID()
     return patientID;
 }
 
-
 // Get Patient Name
 string Billing::getPatientName()
 {
     return patientName;
 }
-
 
 // Get Doctor ID
 int Billing::getDoctorID()
@@ -167,13 +155,11 @@ int Billing::getDoctorID()
     return doctorID;
 }
 
-
 // Get Doctor Name
 string Billing::getDoctorName()
 {
     return doctorName;
 }
-
 
 // Get Consultation Fee
 float Billing::getConsultationFee()
@@ -181,13 +167,11 @@ float Billing::getConsultationFee()
     return consultationFee;
 }
 
-
 // Get Medicine Charges
 float Billing::getMedicineCharges()
 {
     return medicineCharges;
 }
-
 
 // Get Room Charges
 float Billing::getRoomCharges()
@@ -195,13 +179,11 @@ float Billing::getRoomCharges()
     return roomCharges;
 }
 
-
 // Get Other Charges
 float Billing::getOtherCharges()
 {
     return otherCharges;
 }
-
 
 // Get Subtotal
 float Billing::getSubtotal()
@@ -209,20 +191,17 @@ float Billing::getSubtotal()
     return subtotal;
 }
 
-
 // Get VAT Charge
 float Billing::getVatCharge()
 {
     return vatCharge;
 }
 
-
 // Get Overall Charge
 float Billing::getOverallCharge()
 {
     return overallCharge;
 }
-
 
 // Save bill information to file
 void Billing::saveToFile()
@@ -253,7 +232,6 @@ void Billing::saveToFile()
     cout << "Bill information saved successfully." << endl;
 }
 
-
 // Load bill information from file
 void Billing::loadFromFile()
 {
@@ -271,86 +249,11 @@ void Billing::loadFromFile()
 
     while (getline(file, line))
     {
-        cout << line << endl;
+        if (!line.empty())
+        {
+            cout << line << endl;
+        }
     }
 
     file.close();
-}
-
-int main()
-{
-    Billing bill;
-
-    int choice;
-    int detailsEntered = 0;
-
-    do
-    {
-        cout << "\n====================================\n";
-        cout << "       BILLING MANAGEMENT SYSTEM\n";
-        cout << "====================================\n";
-
-        cout << "1. Add Bill Details\n";
-        cout << "2. Update Bill Details\n";
-        cout << "3. Save Bill Details\n";
-        cout << "4. Display Bill\n";
-        cout << "5. Display All Bill Records\n";
-        cout << "6. Exit\n";
-
-        cout << "====================================\n";
-        cout << "Enter your choice: ";
-        cin >> choice;
-
-        switch (choice)
-        {
-            case 1:
-                bill.setBillDetails();
-                detailsEntered = 1;
-                cout << "\nBill details added successfully.\n";
-                break;
-
-            case 2:
-                if (detailsEntered == 1)
-                {
-                    cout << "\nEnter updated bill details:\n";
-                    bill.setBillDetails();
-                    cout << "\nBill details updated successfully.\n";
-                }
-                else
-                {
-                    cout << "\nPlease add bill details first.\n";
-                }
-                break;
-
-            case 3:
-                if (detailsEntered == 1)
-                {
-                    bill.saveToFile();
-                    detailsEntered = 0;
-                }
-                else
-                {
-                    cout << "\nNo bill details available to save.\n";
-                }
-                break;
-
-            case 4:
-                bill.displayBill();
-                break;
-
-            case 5:
-                bill.loadFromFile();
-                break;
-
-            case 6:
-                cout << "\nExiting Billing Management System...\n";
-                break;
-
-            default:
-                cout << "\nInvalid choice. Please try again.\n";
-        }
-
-    } while (choice != 6);
-
-    return 0;
 }

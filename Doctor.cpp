@@ -1,4 +1,4 @@
-#include "doctor.h"
+#include "Doctor.h"
 #include <iostream>
 #include <iomanip>
 #include <fstream>
@@ -38,7 +38,6 @@ void Doctor::setDoctorDetails()
 {
     cout << "\nEnter Doctor ID: ";
     cin >> doctorID;
-
     cin.ignore();
 
     cout << "Enter Doctor Name: ";
@@ -46,7 +45,6 @@ void Doctor::setDoctorDetails()
 
     cout << "Enter Age: ";
     cin >> age;
-
     cin.ignore();
 
     cout << "Enter Gender: ";
@@ -68,6 +66,23 @@ void Doctor::setDoctorDetails()
 // Display one doctor's information
 void Doctor::displayDoctor()
 {
+    cout << "\n" << string(122, '=') << endl;
+    cout << "                         DOCTOR INFORMATION" << endl;
+    cout << string(122, '=') << endl;
+
+    cout << left
+         << setw(12) << "Doctor ID"
+         << setw(20) << "Name"
+         << setw(8) << "Age"
+         << setw(12) << "Gender"
+         << setw(15) << "Contact"
+         << setw(20) << "Specialization"
+         << setw(15) << "Department"
+         << setw(20) << "Availability"
+         << endl;
+
+    cout << string(122, '-') << endl;
+
     cout << left
          << setw(12) << doctorID
          << setw(20) << name
@@ -78,6 +93,8 @@ void Doctor::displayDoctor()
          << setw(15) << department
          << setw(20) << availability
          << endl;
+
+    cout << string(122, '=') << endl;
 }
 
 // Get Doctor ID
@@ -175,9 +192,8 @@ void Doctor::loadFromFile()
 
     int doctorCount = 0;
 
-    // Table heading
     cout << "\n" << string(122, '=') << endl;
-    cout << setw(70) << "DOCTOR INFORMATION" << endl;
+    cout << "                         DOCTOR INFORMATION" << endl;
     cout << string(122, '=') << endl;
 
     cout << left
@@ -193,7 +209,6 @@ void Doctor::loadFromFile()
 
     cout << string(122, '-') << endl;
 
-    // Read and display each doctor
     while (getline(file, id, '|'))
     {
         getline(file, fileName, '|');
@@ -223,97 +238,4 @@ void Doctor::loadFromFile()
     cout << string(122, '=') << endl;
 
     file.close();
-}
-
-
-// Main function
-int main()
-{
-    Doctor doctor;
-
-    int choice;
-    int detailsEntered = 0;
-
-    do
-    {
-        cout << "\n====================================\n";
-        cout << "     DOCTOR MANAGEMENT SYSTEM\n";
-        cout << "====================================\n";
-
-        cout << "1. Add Doctor Details\n";
-        cout << "2. Update Doctor Details\n";
-        cout << "3. Save Doctor Details\n";
-        cout << "4. Display Doctor Records\n";
-        cout << "5. Exit\n";
-
-        cout << "====================================\n";
-        cout << "Enter your choice: ";
-
-        cin >> choice;
-
-        switch (choice)
-        {
-            case 1:
-                cout << "\n========== ADD DOCTOR DETAILS ==========\n";
-
-                doctor.setDoctorDetails();
-
-                detailsEntered = 1;
-
-                cout << "\nDoctor details added successfully.\n";
-                break;
-
-
-            case 2:
-                if (detailsEntered == 1)
-                {
-                    cout << "\n========== UPDATE DOCTOR DETAILS ==========\n";
-                    cout << "Enter the updated doctor details:\n";
-
-                    doctor.setDoctorDetails();
-
-                    cout << "\nDoctor details updated successfully.\n";
-                }
-                else
-                {
-                    cout << "\nNo doctor details found to update.\n";
-                    cout << "Please add doctor details first.\n";
-                }
-
-                break;
-
-
-            case 3:
-                if (detailsEntered == 1)
-                {
-                    doctor.saveToFile();
-
-                    detailsEntered = 0;
-                }
-                else
-                {
-                    cout << "\nNo doctor details available to save.\n";
-                    cout << "Please add doctor details first.\n";
-                }
-
-                break;
-
-
-            case 4:
-                doctor.loadFromFile();
-                break;
-
-
-            case 5:
-                cout << "\nExiting Doctor Management System...\n";
-                break;
-
-
-            default:
-                cout << "\nInvalid choice. Please try again.\n";
-        }
-
-    } while (choice != 5);
-
-    return 0;
 }

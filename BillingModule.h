@@ -25,7 +25,7 @@ private:
     float overallCharge;
 
 public:
-    
+    // Constructors
     Billing();
 
     Billing(int bID, int pID, string pName,
@@ -33,13 +33,12 @@ public:
             float consultation, float medicine,
             float room, float other);
 
-   
+    // Bill functions
     void setBillDetails();
-
     void calculateBill();
-
     void displayBill();
 
+    // Getter functions
     int getBillID();
 
     int getPatientID();
@@ -57,7 +56,7 @@ public:
     float getVatCharge();
     float getOverallCharge();
 
-
+    // File handling
     void saveToFile();
     void loadFromFile();
 };

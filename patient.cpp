@@ -5,7 +5,7 @@
 
 using namespace std;
 
-// Constructor.
+// Default constructor
 Patient::Patient()
 {
     patientID = 0;
@@ -16,7 +16,7 @@ Patient::Patient()
     disease = "";
 }
 
-// Parameterized Constructor.
+// Parameterized constructor
 Patient::Patient(int id, string n, int a, string g, string c, string d)
 {
     patientID = id;
@@ -27,12 +27,11 @@ Patient::Patient(int id, string n, int a, string g, string c, string d)
     disease = d;
 }
 
-// Set patient details.
+// Set patient details
 void Patient::setPatientDetails()
 {
     cout << "\nEnter Patient ID: ";
     cin >> patientID;
-
     cin.ignore();
 
     cout << "Enter Patient Name: ";
@@ -40,7 +39,6 @@ void Patient::setPatientDetails()
 
     cout << "Enter Age: ";
     cin >> age;
-
     cin.ignore();
 
     cout << "Enter Gender: ";
@@ -70,37 +68,37 @@ void Patient::displayPatient()
     cout << "-----------------------------" << endl;
 }
 
-// Get Patient ID.
+// Get Patient ID
 int Patient::getPatientID()
 {
     return patientID;
 }
 
-// Get Patient Name.
+// Get Patient Name
 string Patient::getName()
 {
     return name;
 }
 
-// Get Patient Age.
+// Get Patient Age
 int Patient::getAge()
 {
     return age;
 }
 
-// Get Patient Gender.
+// Get Patient Gender
 string Patient::getGender()
 {
     return gender;
 }
 
-// Get Patient Contact.
+// Get Patient Contact
 string Patient::getContact()
 {
     return contact;
 }
 
-// Get Patient Disease.
+// Get Patient Disease
 string Patient::getDisease()
 {
     return disease;
@@ -146,7 +144,10 @@ void Patient::loadFromFile()
 
     while (getline(file, line))
     {
-        cout << line << endl;
+        if (!line.empty())
+        {
+            cout << line << endl;
+        }
     }
 
     file.close();

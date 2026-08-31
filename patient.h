@@ -7,7 +7,6 @@ using namespace std;
 class Patient
 {
 private:
-    // Patient information
     int patientID;
     string name;
     int age;
