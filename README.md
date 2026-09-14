@@ -119,7 +119,7 @@ main
 ### 1. Clone the Repository
 
 ```bash
-git clone <repository-url>
+git clone 
 ```
 
 ### 2. Navigate to the Project
@@ -162,8 +162,8 @@ This project is developed to apply important **C++ Object-Oriented Programming c
 * Member Functions
 * Access Specifiers
 * Function Overloading
-* Inheritance *(if implemented)*
-* Polymorphism *(if implemented)*
+* Inheritance 
+* Polymorphism 
 * File Handling
 * Modular Programming
 
@@ -238,9 +238,9 @@ The main objective of this project is to build a simple but functional **Hospita
 
 ## 👥 Contributors
 
-* **Prashant Paudel** — Main Developer
-* **Ridima** — Contributor
-* **Pramanna** — Contributor
+* **Prashant Paudel** 
+* **Ridima** 
+* **Pramanna** 
 
 ---
 
