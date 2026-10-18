@@ -238,9 +238,9 @@ The main objective of this project is to build a simple but functional **Hospita
 
 ## 👥 Contributors
 
-* **Prashant Paudel** — Main Developer
-* **Ridima** — Contributor
-* **Pramanna** — Contributor
+* **Prashant Paudel** 
+* **Ridima** 
+* **Pramanna** 
 
 ---
 
